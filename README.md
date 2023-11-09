@@ -54,3 +54,33 @@ Check https://learn.cypress.io/testing-your-first-application/app-install-and-ov
 
 Adapt cypress.config.js according to this documentation: https://docs.cypress.io/guides/references/configuration#Testing-Type-Specific-Options
 
+## .cypress-cucumber-preprocessorrc.json
+
+Manually, create the cucumber configuration file. 
+
+Example:
+
+```
+{
+    "json": {
+      "enabled": false,
+      "output": "jsonlogs/log.json",
+      "formatter": "cucumber-json-formatter.exe"
+    },
+    "messages": {
+      "enabled": false,
+      "output": "jsonlogs/messages.ndjson"
+    },
+    "html": {
+      "enabled": true
+    },
+    "stepDefinitions": [
+      "[filepath]/**/*.{js,ts}",
+      "[filepath].{js,ts}",
+      "e2e/step_definitions/*.{js,ts}",
+      "[filepath]\\***.{js,ts}",
+      "[filepath].{js,ts}",
+      "e2e\\step_definitions\\*.{js,ts}"
+    ]
+  }
+  ```
